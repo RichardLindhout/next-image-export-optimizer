@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useMemo, useState } from "react";
-import { ImageProps, StaticImageData } from "next/image";
+import { ImageProps, StaticImageData } from "next/future/image";
 
 const splitFilePath = ({ filePath }: { filePath: string }) => {
   const filenameWithExtension =
