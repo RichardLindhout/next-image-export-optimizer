@@ -246,8 +246,6 @@ function ExportedImage(_param) {
         quality: quality
     }, onLoadingComplete && {
         onLoadingComplete: onLoadingComplete
-    }, placeholder && {
-        placeholder: placeholder
     }, unoptimized && {
         unoptimized: unoptimized
     }, priority && {
@@ -262,6 +260,7 @@ function ExportedImage(_param) {
                 useWebp: useWebp
             });
         },
+        placeholder: placeholder || automaticallyCalculatedBlurDataURL ? "blur" : undefined,
         blurDataURL: automaticallyCalculatedBlurDataURL,
         onError: function(error) {
             setImageError(true);
