@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image, { ImageProps, StaticImageData } from "next/future/image";
+
 import React, { useMemo, useState } from "react";
-import { ImageProps, StaticImageData } from "next/future/image";
 
 const splitFilePath = ({ filePath }: { filePath: string }) => {
   const filenameWithExtension =
@@ -86,14 +86,14 @@ function ExportedImage({
   src,
   priority = false,
   loading,
-  lazyRoot = null,
-  lazyBoundary = "200px",
+  // lazyRoot = null,
+  // lazyBoundary = "200px",
   className,
   quality,
   width,
   height,
-  objectFit,
-  objectPosition,
+  // objectFit,
+  // objectPosition,
   useWebp = true,
   onLoadingComplete,
   unoptimized,
@@ -127,12 +127,12 @@ function ExportedImage({
       {...(width && { width })}
       {...(height && { height })}
       {...(loading && { loading })}
-      {...(lazyRoot && { lazyRoot })}
-      {...(lazyBoundary && { lazyBoundary })}
+      // {...(lazyRoot && { lazyRoot })}
+      // {...(lazyBoundary && { lazyBoundary })}
       {...(className && { className })}
       {...(quality && { quality })}
-      {...(objectFit && { objectFit })}
-      {...(objectPosition && { objectPosition })}
+      // {...(objectFit && { objectFit })}
+      // {...(objectPosition && { objectPosition })}
       {...(onLoadingComplete && { onLoadingComplete })}
       {...(placeholder && { placeholder })}
       {...(unoptimized && { unoptimized })}
