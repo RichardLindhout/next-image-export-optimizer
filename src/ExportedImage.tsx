@@ -97,7 +97,7 @@ function ExportedImage({
   useWebp = true,
   onLoadingComplete,
   unoptimized,
-  placeholder = "blur",
+  placeholder = "empty",
   blurDataURL,
   onError,
   ...rest
@@ -134,6 +134,7 @@ function ExportedImage({
       // {...(objectFit && { objectFit })}
       // {...(objectPosition && { objectPosition })}
       {...(onLoadingComplete && { onLoadingComplete })}
+      {...(placeholder && { placeholder })}
       {...(unoptimized && { unoptimized })}
       {...(priority && { priority })}
       {...(imageError && { unoptimized: true })}
@@ -141,9 +142,6 @@ function ExportedImage({
         imageError || unoptimized === true
           ? fallbackLoader
           : (e) => optimizedLoader({ src, width: e.width, useWebp })
-      }
-      placeholder={
-        placeholder || automaticallyCalculatedBlurDataURL ? "blur" : undefined
       }
       blurDataURL={automaticallyCalculatedBlurDataURL}
       onError={(error) => {

@@ -199,7 +199,7 @@ var fallbackLoader = function(param) {
     return _src;
 };
 function ExportedImage(_param) {
-    var src = _param.src, _priority = _param.priority, priority = _priority === void 0 ? false : _priority, loading = _param.loading, className = _param.className, quality = _param.quality, width = _param.width, height = _param.height, _useWebp = _param.useWebp, useWebp = _useWebp === void 0 ? true : _useWebp, onLoadingComplete = _param.onLoadingComplete, unoptimized = _param.unoptimized, _placeholder = _param.placeholder, placeholder = _placeholder === void 0 ? "blur" : _placeholder, blurDataURL = _param.blurDataURL, onError = _param.onError, rest = _objectWithoutProperties(_param, [
+    var src = _param.src, _priority = _param.priority, priority = _priority === void 0 ? false : _priority, loading = _param.loading, className = _param.className, quality = _param.quality, width = _param.width, height = _param.height, _useWebp = _param.useWebp, useWebp = _useWebp === void 0 ? true : _useWebp, onLoadingComplete = _param.onLoadingComplete, unoptimized = _param.unoptimized, _placeholder = _param.placeholder, placeholder = _placeholder === void 0 ? "empty" : _placeholder, blurDataURL = _param.blurDataURL, onError = _param.onError, rest = _objectWithoutProperties(_param, [
         "src",
         "priority",
         "loading",
@@ -246,6 +246,8 @@ function ExportedImage(_param) {
         quality: quality
     }, onLoadingComplete && {
         onLoadingComplete: onLoadingComplete
+    }, placeholder && {
+        placeholder: placeholder
     }, unoptimized && {
         unoptimized: unoptimized
     }, priority && {
@@ -260,7 +262,6 @@ function ExportedImage(_param) {
                 useWebp: useWebp
             });
         },
-        placeholder: placeholder || automaticallyCalculatedBlurDataURL ? "blur" : undefined,
         blurDataURL: automaticallyCalculatedBlurDataURL,
         onError: function(error) {
             setImageError(true);
